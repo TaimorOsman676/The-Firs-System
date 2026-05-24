@@ -6,6 +6,7 @@ import { getDictionary } from "@/i18n/getDictionary";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFab } from "@/components/WhatsAppFab";
+import { MouseParallax } from "@/components/MouseParallax";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -80,6 +81,7 @@ export default async function LocaleLayout(props: {
       suppressHydrationWarning
     >
       <body>
+        <MouseParallax />
         <Header locale={typedLocale} dict={dict} />
         <main>{props.children}</main>
         <Footer locale={typedLocale} dict={dict} />

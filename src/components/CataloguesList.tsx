@@ -274,17 +274,17 @@ export function CataloguesList({ locale, dict }: Props) {
       {/* Search and Filters panel */}
       <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between border-b border-[var(--color-border)] pb-8 mb-10">
         {/* Category Pills (horizontal scrollable on mobile) */}
-        <div className="flex flex-wrap gap-2 order-2 md:order-1">
+        <div className="flex overflow-x-auto gap-2 order-2 md:order-1 max-w-full pb-3 md:pb-0 scrollbar-none sm:flex-wrap">
           {categories.map((cat) => {
             const active = selectedCategory === cat.value;
             return (
               <button
                 key={cat.value}
                 onClick={() => setSelectedCategory(cat.value)}
-                className={`rounded-full px-5 py-2 text-xs font-semibold tracking-wide transition-all duration-300 border ${
+                className={`rounded-full px-5 py-2 text-xs font-semibold tracking-wide transition-all duration-300 border shrink-0 ${
                   active
                     ? "bg-[var(--color-accent)] border-[var(--color-accent)] text-black shadow-lg shadow-[var(--color-accent)]/10"
-                    : "bg-[var(--color-surface)] border-[var(--color-border)] text-[var(--color-fg-muted)] hover:border-[var(--color-accent)]/30 hover:text-[var(--color-fg)]"
+                    : "bg-[var(--color-surface)] border-[var(--color-border)] text-[var(--color-fg-muted)] hover:border-[var(--color-accent-green)]/60 hover:text-[var(--color-fg)]"
                 }`}
               >
                 {cat.label}

@@ -52,8 +52,8 @@ export default async function AboutPage(props: {
             <SectionHeader eyebrow={t.story.eyebrow} title={t.story.title} />
             <div className="relative mt-8">
               {/* Outer soft aura glow */}
-              <div className="absolute -inset-2 rounded-[24px] bg-gradient-to-tr from-[var(--color-accent)]/15 to-[var(--color-accent-2)]/10 blur-xl opacity-75 animate-halo pointer-events-none" />
-              <div className="relative rounded-2xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)] shadow-2xl aspect-[4/3] group animate-float-slow">
+              <div className="absolute -inset-2 rounded-[24px] bg-gradient-to-tr from-[var(--color-accent)]/15 to-[var(--color-accent-2)]/10 blur-xl opacity-75 animate-halo pointer-events-none parallax-glow-1" />
+              <div className="relative rounded-2xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)] shadow-2xl aspect-[4/3] group animate-float-slow parallax-element">
                 <div className="absolute inset-0 bg-gradient-to-t from-[#07090d]/60 via-transparent to-transparent z-10 pointer-events-none" />
                 <img
                   src="/images/concrete_construction.png"
@@ -96,9 +96,18 @@ export default async function AboutPage(props: {
 
       {/* CTA */}
       <Section size="md">
-        <div className="relative overflow-hidden rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8 md:p-14 text-center">
-          <div className="absolute inset-0 hero-grid-bg pointer-events-none opacity-50" />
-          <div className="relative">
+        <div className="relative overflow-hidden rounded-3xl border border-[var(--color-accent-green)]/30 bg-[var(--color-surface)] p-8 md:p-14 text-center group">
+          <div 
+            className="absolute inset-0 opacity-[0.03] group-hover:opacity-[0.06] scale-100 group-hover:scale-105 transition-all duration-1000 pointer-events-none z-0"
+            style={{
+              backgroundImage: `url(/images/polished_concrete.png)`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-surface)] via-transparent to-transparent pointer-events-none z-0" />
+          <div className="absolute inset-0 hero-grid-bg pointer-events-none opacity-40 z-0" />
+          <div className="relative z-10">
             <h2 className="text-display text-3xl font-medium md:text-5xl">
               {t.cta.title}
             </h2>

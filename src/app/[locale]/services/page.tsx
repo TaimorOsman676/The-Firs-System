@@ -45,7 +45,7 @@ export default async function ServicesPage(props: {
           {t.items.map((s, idx) => (
             <div
               key={s.id}
-              className="group relative flex flex-col overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 transition-all duration-300 hover:border-[var(--color-accent)]/45 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[var(--color-accent)]/5"
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 transition-all duration-300 hover:border-[var(--color-accent-green)]/60 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[var(--color-accent-green)]/5"
             >
               {/* Animated Concrete Background Texture */}
               <div 

@@ -53,7 +53,7 @@ export default async function ContactPage(props: {
                 {office.type === "headquarters" && (
                   <div className="absolute -end-16 -top-16 w-40 h-40 rounded-full bg-[var(--color-accent)]/10 blur-3xl pointer-events-none" />
                 )}
-                <div className="flex items-center justify-between gap-6 relative">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 relative">
                   <div className="flex-1">
                     <div className="relative flex items-start justify-between">
                       <div className="flex items-start gap-4">
@@ -130,7 +130,7 @@ export default async function ContactPage(props: {
                     href={getMapLink(office.city)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hidden sm:block shrink-0 w-28 h-28 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)]/40 relative overflow-hidden group/map transition-all duration-300 hover:border-[var(--color-accent)]/55 hover:shadow-lg hover:shadow-[var(--color-accent)]/5"
+                    className="block w-full sm:w-28 h-36 sm:h-28 shrink-0 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)]/40 relative overflow-hidden group/map transition-all duration-300 hover:border-[var(--color-accent)]/55 hover:shadow-lg hover:shadow-[var(--color-accent)]/5"
                     title={locale === "ar" ? "افتح الموقع في خرائط جوجل" : "Open location in Google Maps"}
                   >
                     <div className="absolute inset-0 hero-grid-bg opacity-30 pointer-events-none" />

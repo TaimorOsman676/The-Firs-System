@@ -44,10 +44,10 @@ export default async function BrandsPage(props: {
           {t.items.map((b) => (
             <article
               key={b.id}
-              className={`group relative overflow-hidden rounded-2xl border p-7 transition-all duration-300 hover:border-[var(--color-accent)]/45 hover:-translate-y-1 hover:shadow-2xl ${
+              className={`group relative overflow-hidden rounded-2xl border p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${
                 b.exclusive
-                  ? "border-[var(--color-accent)]/30 bg-gradient-to-br from-[var(--color-surface)] via-[var(--color-surface)] to-[var(--color-accent-soft)]/20 hover:shadow-[var(--color-accent)]/5"
-                  : "border-[var(--color-border)] bg-[var(--color-surface)] hover:shadow-black/20"
+                  ? "border-[var(--color-accent)]/30 bg-gradient-to-br from-[var(--color-surface)] via-[var(--color-surface)] to-[var(--color-accent-soft)]/20 hover:border-[var(--color-accent)]/60 hover:shadow-[var(--color-accent)]/5"
+                  : "border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-accent-green)]/60 hover:shadow-[var(--color-accent-green)]/5"
               }`}
             >
               {/* Dynamic Background Image Texture on Hover */}
@@ -92,9 +92,18 @@ export default async function BrandsPage(props: {
       </Section>
 
       <Section size="md">
-        <div className="relative overflow-hidden rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8 md:p-14 text-center">
-          <div className="absolute inset-0 hero-grid-bg pointer-events-none opacity-50" />
-          <div className="relative">
+        <div className="relative overflow-hidden rounded-3xl border border-[var(--color-accent-green)]/30 bg-[var(--color-surface)] p-8 md:p-14 text-center group">
+          <div 
+            className="absolute inset-0 opacity-[0.03] group-hover:opacity-[0.06] scale-100 group-hover:scale-105 transition-all duration-1000 pointer-events-none z-0"
+            style={{
+              backgroundImage: `url(/images/stamped_concrete.png)`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-surface)] via-transparent to-transparent pointer-events-none z-0" />
+          <div className="absolute inset-0 hero-grid-bg pointer-events-none opacity-40 z-0" />
+          <div className="relative z-10">
             <h2 className="text-display text-3xl font-medium md:text-5xl">
               {t.cta.title}
             </h2>

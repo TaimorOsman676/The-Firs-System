@@ -162,7 +162,7 @@ export default async function HomePage(props: {
               <a
                 href={`/${locale}/services`}
                 key={s.id}
-                className="group relative flex flex-col overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 transition-all duration-300 hover:border-[var(--color-accent)]/45 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[var(--color-accent)]/5"
+                className="group relative flex flex-col overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 transition-all duration-300 hover:border-[var(--color-accent-green)]/60 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[var(--color-accent-green)]/5"
               >
                 {/* Dynamic Background Image Texture on Hover */}
                 <div 
@@ -202,9 +202,18 @@ export default async function HomePage(props: {
 
       {/* SAMPLE CTA */}
       <Section size="md">
-        <div className="relative overflow-hidden rounded-3xl border border-[var(--color-accent)]/20 bg-gradient-to-br from-[var(--color-surface-elevated)] to-[var(--color-surface)] p-8 md:p-14">
-          <div className="absolute -end-32 -top-20 w-[400px] h-[400px] rounded-full bg-[var(--color-accent)]/15 blur-3xl pointer-events-none" />
-          <div className="relative grid gap-6 md:grid-cols-2 md:items-center">
+        <div className="relative overflow-hidden rounded-3xl border border-[var(--color-accent-green)]/30 bg-gradient-to-br from-[var(--color-surface-elevated)] to-[var(--color-surface)] p-8 md:p-14 group">
+          <div 
+            className="absolute inset-0 opacity-[0.04] group-hover:opacity-[0.07] scale-100 group-hover:scale-105 transition-all duration-1000 pointer-events-none z-0"
+            style={{
+              backgroundImage: `url(/images/concrete_construction.png)`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#07090d]/90 via-[#0c1015]/40 to-transparent pointer-events-none z-0" />
+          <div className="absolute -end-32 -top-20 w-[400px] h-[400px] rounded-full bg-[var(--color-accent)]/15 blur-3xl pointer-events-none z-0" />
+          <div className="relative grid gap-6 md:grid-cols-2 md:items-center z-10">
             <div>
               <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--color-accent)]">
                 <span className="h-px w-6 bg-[var(--color-accent)]" />
@@ -261,7 +270,7 @@ export default async function HomePage(props: {
             return (
               <div
                 key={b.id}
-                className="group relative overflow-hidden flex flex-col items-center justify-center gap-2 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] py-8 px-4 transition-all duration-300 hover:border-[var(--color-accent)]/45 hover:-translate-y-1 hover:shadow-xl"
+                className="group relative overflow-hidden flex flex-col items-center justify-center gap-2 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] py-8 px-4 transition-all duration-300 hover:border-[var(--color-accent-green)]/60 hover:-translate-y-1 hover:shadow-xl hover:shadow-[var(--color-accent-green)]/5"
               >
                 {/* Background texture on hover */}
                 <div 
@@ -288,8 +297,17 @@ export default async function HomePage(props: {
 
       {/* NEWSLETTER */}
       <Section size="md">
-        <div className="rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8 md:p-12">
-          <div className="grid gap-8 md:grid-cols-2 md:items-center">
+        <div className="relative overflow-hidden rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface)] p-8 md:p-12 group">
+          <div 
+            className="absolute inset-0 opacity-[0.03] scale-100 transition-all duration-1000 pointer-events-none z-0"
+            style={{
+              backgroundImage: `url(/images/stamped_concrete.png)`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-surface)] via-transparent to-transparent pointer-events-none z-0" />
+          <div className="relative grid gap-8 md:grid-cols-2 md:items-center z-10">
             <div>
               <h2 className="text-display text-2xl font-medium md:text-4xl">
                 {t.newsletter.title}

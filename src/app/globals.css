@@ -12,7 +12,11 @@
   --color-accent: #d6a86b;
   --color-accent-hover: #e5b97c;
   --color-accent-soft: rgba(214, 168, 107, 0.12);
-  --color-accent-2: #2c8db5;
+  --color-accent-2: #16a34a; /* Emerald green secondary accent */
+  --color-accent-green: #166534; /* Dark green 800 */
+  --color-accent-green-hover: #15803d; /* Emerald 700 */
+  --color-accent-green-soft: rgba(22, 163, 74, 0.08);
+  --color-accent-green-border: #14532d; /* Dark green 900 */
   --color-success: #4ade80;
   --color-danger: #f87171;
 
@@ -154,6 +158,30 @@ body {
       transparent 100%
     );
     border-radius: 2px;
+  }
+
+  .parallax-element {
+    transform: translate(
+      calc((var(--mouse-x, 0.5) - 0.5) * 16px),
+      calc((var(--mouse-y, 0.5) - 0.5) * 16px)
+    );
+    transition: transform 0.4s cubic-bezier(0.1, 0.8, 0.2, 1);
+  }
+
+  .parallax-glow-1 {
+    transform: translate(
+      calc((var(--mouse-x, 0.5) - 0.5) * 45px),
+      calc((var(--mouse-y, 0.5) - 0.5) * 45px)
+    );
+    transition: transform 0.6s cubic-bezier(0.1, 0.8, 0.2, 1);
+  }
+
+  .parallax-glow-2 {
+    transform: translate(
+      calc((var(--mouse-x, 0.5) - 0.5) * -30px),
+      calc((var(--mouse-y, 0.5) - 0.5) * -30px)
+    );
+    transition: transform 0.7s cubic-bezier(0.1, 0.8, 0.2, 1);
   }
 }
 
