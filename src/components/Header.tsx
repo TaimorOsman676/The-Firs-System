@@ -1,0 +1,167 @@
+"use client";
+
+import * as React from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import type { Dict } from "@/i18n/getDictionary";
+import type { Locale } from "@/i18n/config";
+import { Icon } from "./Icon";
+import { Logo } from "./Logo";
+
+interface Props {
+  locale: Locale;
+  dict: Dict;
+}
+
+export function Header({ locale, dict }: Props) {
+  const pathname = usePathname();
+  const [scrolled, setScrolled] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  React.useEffect(() => {
+    setMobileOpen(false);
+  }, [pathname]);
+
+  const links = [
+    { href: `/${locale}`, label: dict.nav.home, exact: true },
+    { href: `/${locale}/about`, label: dict.nav.about },
+    { href: `/${locale}/services`, label: dict.nav.services },
+    { href: `/${locale}/products`, label: dict.nav.products },
+    { href: `/${locale}/brands`, label: dict.nav.brands },
+    { href: `/${locale}/contact`, label: dict.nav.contact },
+  ];
+
+  const isActive = (href: string, exact?: boolean) => {
+    if (exact) return pathname === href;
+    return pathname === href || pathname.startsWith(href + "/");
+  };
+
+  const otherLocale: Locale = locale === "en" ? "ar" : "en";
+  const switchPath = (() => {
+    if (!pathname) return `/${otherLocale}`;
+    const parts = pathname.split("/").filter(Boolean);
+    if (parts.length > 0) parts[0] = otherLocale;
+    return "/" + parts.join("/");
+  })();
+
+  return (
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-[var(--color-bg)]/85 backdrop-blur-md border-b border-[var(--color-border)]"
+          : "bg-transparent border-b border-transparent"
+      }`}
+    >
+      <div className="container-page flex h-16 items-center justify-between gap-6 md:h-20">
+        <Link href={`/${locale}`} className="flex items-center gap-3 group">
+          <span className="grid h-9 w-9 place-items-center rounded-xl bg-[var(--color-surface-elevated)] ring-1 ring-[var(--color-border)] transition group-hover:ring-[var(--color-accent)]/40">
+            <Logo size={22} />
+          </span>
+          <div className="hidden sm:flex flex-col leading-tight">
+            <span className="text-[15px] font-semibold tracking-tight">
+              {dict.brand.name}
+            </span>
+            <span className="text-[11px] uppercase tracking-[0.18em] text-[var(--color-fg-subtle)]">
+              {locale === "en" ? "Decorative & Construction Chemicals" : "كيماويات البناء والديكور"}
+            </span>
+          </div>
+        </Link>
+
+        <nav className="hidden lg:flex items-center gap-1">
+          {links.map((l) => {
+            const active = isActive(l.href, l.exact);
+            return (
+              <Link
+                key={l.href}
+                href={l.href}
+                className={`relative rounded-full px-4 py-2 text-sm transition-colors ${
+                  active
+                    ? "text-[var(--color-fg)]"
+                    : "text-[var(--color-fg-muted)] hover:text-[var(--color-fg)]"
+                }`}
+              >
+                {l.label}
+                {active && (
+                  <span className="absolute inset-x-3 -bottom-0.5 h-px bg-[var(--color-accent)]" />
+                )}
+              </Link>
+            );
+          })}
+        </nav>
+
+        <div className="flex items-center gap-2">
+          <Link
+            href={switchPath}
+            className="hidden sm:inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 text-xs font-medium text-[var(--color-fg-muted)] hover:border-[var(--color-accent)]/40 hover:text-[var(--color-fg)] transition"
+            aria-label="Switch language"
+          >
+            <Icon name="Globe" size={14} />
+            <span>{dict.nav.switchTo}</span>
+          </Link>
+
+          <Link
+            href={`/${locale}/contact`}
+            className="hidden md:inline-flex items-center gap-2 rounded-full bg-[var(--color-accent)] px-4 py-2 text-sm font-semibold text-black hover:bg-[var(--color-accent-hover)] transition"
+          >
+            {dict.nav.cta}
+            <Icon name={locale === "ar" ? "ArrowLeft" : "ArrowRight"} size={14} />
+          </Link>
+
+          <button
+            className="lg:hidden grid h-10 w-10 place-items-center rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] text-[var(--color-fg)]"
+            onClick={() => setMobileOpen((v) => !v)}
+            aria-label="Toggle menu"
+          >
+            <Icon name={mobileOpen ? "X" : "Menu"} size={18} />
+          </button>
+        </div>
+      </div>
+
+      {mobileOpen && (
+        <div className="lg:hidden border-t border-[var(--color-border)] bg-[var(--color-bg)]/95 backdrop-blur">
+          <nav className="container-page flex flex-col py-4">
+            {links.map((l) => {
+              const active = isActive(l.href, l.exact);
+              return (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  className={`flex items-center justify-between rounded-xl px-3 py-3 text-base ${
+                    active
+                      ? "text-[var(--color-fg)] bg-[var(--color-surface)]"
+                      : "text-[var(--color-fg-muted)] hover:text-[var(--color-fg)]"
+                  }`}
+                >
+                  <span>{l.label}</span>
+                  <Icon name={locale === "ar" ? "ArrowLeft" : "ArrowRight"} size={16} />
+                </Link>
+              );
+            })}
+            <div className="mt-3 grid grid-cols-2 gap-2">
+              <Link
+                href={switchPath}
+                className="flex items-center justify-center gap-2 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-3 text-sm font-medium"
+              >
+                <Icon name="Globe" size={14} />
+                {dict.nav.switchTo}
+              </Link>
+              <Link
+                href={`/${locale}/contact`}
+                className="flex items-center justify-center gap-2 rounded-xl bg-[var(--color-accent)] px-3 py-3 text-sm font-semibold text-black"
+              >
+                {dict.nav.cta}
+              </Link>
+            </div>
+          </nav>
+        </div>
+      )}
+    </header>
+  );
+}

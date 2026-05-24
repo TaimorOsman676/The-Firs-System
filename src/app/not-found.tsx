@@ -1,0 +1,45 @@
+import Link from "next/link";
+
+export default function NotFound() {
+  return (
+    <html lang="en">
+      <body
+        style={{
+          background: "#07090d",
+          color: "#e6ebf2",
+          fontFamily: "Inter, system-ui, sans-serif",
+          display: "flex",
+          minHeight: "100vh",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <div style={{ textAlign: "center", padding: 32 }}>
+          <div style={{ fontSize: 14, letterSpacing: "0.2em", color: "#d6a86b" }}>
+            ERROR 404
+          </div>
+          <h1 style={{ fontSize: 56, marginTop: 16, marginBottom: 16 }}>
+            Page not found
+          </h1>
+          <p style={{ color: "#95a0b0", marginBottom: 32 }}>
+            The page you're looking for doesn't exist.
+          </p>
+          <Link
+            href="/en"
+            style={{
+              display: "inline-block",
+              padding: "12px 24px",
+              borderRadius: 9999,
+              background: "#d6a86b",
+              color: "black",
+              fontWeight: 600,
+              textDecoration: "none",
+            }}
+          >
+            Back to homepage
+          </Link>
+        </div>
+      </body>
+    </html>
+  );
+}
