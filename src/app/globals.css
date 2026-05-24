@@ -338,6 +338,16 @@ select:-webkit-autofill {
   .card-bg-blueprint-stat {
     opacity: 0.08 !important;
   }
+  .catalog-cover-layer {
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+  .catalog-details-layer {
+    transform: translateY(0) !important;
+  }
+  .catalog-doc-preview {
+    opacity: 0.16 !important;
+  }
 }
 
 

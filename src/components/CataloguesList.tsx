@@ -333,13 +333,13 @@ export function CataloguesList({ locale, dict }: Props) {
                 style={{ animationDelay: `${idx * 40}ms` }}
               >
                 {/* 1. MOCK DOCUMENT BACKGROUND (Scrolls up on hover) */}
-                <div className="absolute inset-x-0 top-0 h-[600px] opacity-[0.06] group-hover:opacity-[0.20] transition-all duration-700 ease-in-out select-none pointer-events-none z-0 overflow-hidden">
+                <div className="catalog-doc-preview absolute inset-x-0 top-0 h-[600px] opacity-[0.06] group-hover:opacity-[0.20] transition-all duration-700 ease-in-out select-none pointer-events-none z-0 overflow-hidden">
                   {renderDocPreview(item)}
                 </div>
 
                 {/* 2. COVER LAYER (Concrete Image background, fades on hover) */}
                 <div 
-                  className="absolute inset-0 flex flex-col justify-between p-6 transition-all duration-500 z-10 group-hover:opacity-0 group-hover:scale-95 group-hover:pointer-events-none"
+                  className="catalog-cover-layer absolute inset-0 flex flex-col justify-between p-6 transition-all duration-500 z-10 group-hover:opacity-0 group-hover:scale-95 group-hover:pointer-events-none"
                   style={{
                     backgroundImage: `linear-gradient(to bottom, rgba(7, 9, 13, 0.75), rgba(7, 9, 13, 0.9)), url(${getCoverBgImage(item.filename)})`,
                     backgroundSize: 'cover',
@@ -372,7 +372,7 @@ export function CataloguesList({ locale, dict }: Props) {
                 </div>
 
                 {/* 3. SLIDE-UP DETAILS LAYER (Slides up to occupy bottom 200px, leaving top for document preview) */}
-                <div className="absolute inset-x-0 bottom-0 h-[200px] bg-gradient-to-t from-[#07090d] via-[#0c1015]/98 to-[#0c1015]/85 backdrop-blur-md border-t border-[var(--color-border)]/40 p-5 z-20 translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0 rounded-b-2xl flex flex-col justify-between">
+                <div className="catalog-details-layer absolute inset-x-0 bottom-0 h-[200px] bg-gradient-to-t from-[#07090d] via-[#0c1015]/98 to-[#0c1015]/85 backdrop-blur-md border-t border-[var(--color-border)]/40 p-5 z-20 translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0 rounded-b-2xl flex flex-col justify-between">
                   <div>
                     <span className="inline-block rounded-full bg-[var(--color-accent-soft)] px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-[var(--color-accent)] mb-2">
                       {getCategoryLabel(item.category)}
