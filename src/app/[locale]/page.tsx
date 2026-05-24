@@ -127,7 +127,7 @@ export default async function HomePage(props: {
                   >
                     {/* Digital building blueprint background texture */}
                     <div 
-                      className="absolute inset-0 opacity-[0.03] group-hover/card:opacity-[0.18] scale-100 group-hover/card:scale-108 transition-all duration-700 pointer-events-none z-0"
+                      className="card-bg-blueprint absolute inset-0 opacity-[0.03] group-hover/card:opacity-[0.18] scale-100 group-hover/card:scale-108 transition-all duration-700 pointer-events-none z-0"
                       style={{
                         backgroundImage: `url(${bgImage})`,
                         backgroundSize: 'cover',
@@ -192,7 +192,7 @@ export default async function HomePage(props: {
               >
                 {/* Dynamic Background Image Texture - Visible by default, scales and clears on hover */}
                 <div 
-                  className="absolute inset-0 opacity-15 scale-100 group-hover:opacity-65 group-hover:scale-110 transition-all duration-500 ease-out pointer-events-none z-0"
+                  className="card-bg-concrete absolute inset-0 opacity-15 scale-100 group-hover:opacity-65 group-hover:scale-110 transition-all duration-500 ease-out pointer-events-none z-0"
                   style={{
                     backgroundImage: `url(${getServiceBgImage(s.id)})`,
                     backgroundSize: 'cover',
@@ -306,7 +306,7 @@ export default async function HomePage(props: {
                   >
                     {/* Background texture - visible by default, scales and clears on hover */}
                     <div 
-                      className="absolute inset-0 opacity-15 scale-100 group-hover:opacity-65 group-hover:scale-110 transition-all duration-500 ease-out pointer-events-none z-0"
+                      className="card-bg-concrete absolute inset-0 opacity-15 scale-100 group-hover:opacity-65 group-hover:scale-110 transition-all duration-500 ease-out pointer-events-none z-0"
                       style={{
                         backgroundImage: `url(${getBrandBgImage(b.id)})`,
                         backgroundSize: 'cover',
@@ -357,7 +357,7 @@ export default async function HomePage(props: {
                   >
                     {/* Background texture - visible by default, scales and clears on hover */}
                     <div 
-                      className="absolute inset-0 opacity-15 scale-100 group-hover:opacity-65 group-hover:scale-110 transition-all duration-500 ease-out pointer-events-none z-0"
+                      className="card-bg-concrete absolute inset-0 opacity-15 scale-100 group-hover:opacity-65 group-hover:scale-110 transition-all duration-500 ease-out pointer-events-none z-0"
                       style={{
                         backgroundImage: `url(${getBrandBgImage(b.id)})`,
                         backgroundSize: 'cover',

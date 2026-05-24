@@ -49,7 +49,7 @@ export default async function ServicesPage(props: {
             >
               {/* Animated Concrete Background Texture - 30% normal / 65% hover */}
               <div 
-                className="absolute inset-0 opacity-30 scale-100 group-hover:opacity-65 group-hover:scale-110 transition-all duration-500 ease-out pointer-events-none z-0"
+                className="card-bg-concrete absolute inset-0 opacity-30 scale-100 group-hover:opacity-65 group-hover:scale-110 transition-all duration-500 ease-out pointer-events-none z-0"
                 style={{
                   backgroundImage: `url(${getServiceBgImage(s.id)})`,
                   backgroundSize: 'cover',
@@ -108,7 +108,7 @@ export default async function ServicesPage(props: {
               >
                 {/* Digital building blueprint background texture */}
                 <div 
-                  className="absolute inset-0 opacity-[0.03] group-hover/process:opacity-[0.18] scale-100 group-hover/process:scale-108 transition-all duration-700 pointer-events-none z-0"
+                  className="card-bg-blueprint absolute inset-0 opacity-[0.03] group-hover/process:opacity-[0.18] scale-100 group-hover/process:scale-108 transition-all duration-700 pointer-events-none z-0"
                   style={{
                     backgroundImage: `url(${bgImage})`,
                     backgroundSize: 'cover',

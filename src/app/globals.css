@@ -328,3 +328,16 @@ select:-webkit-autofill {
   border-radius: 4px;
 }
 
+@media (hover: none) {
+  .card-bg-concrete {
+    opacity: 0.35 !important;
+  }
+  .card-bg-blueprint {
+    opacity: 0.12 !important;
+  }
+  .card-bg-blueprint-stat {
+    opacity: 0.08 !important;
+  }
+}
+
+
